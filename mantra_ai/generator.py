@@ -62,3 +62,44 @@ def format_block(payload: dict) -> str:
     bullets = "\n".join([f"• {l}" for l in payload["lines"]])
     stamp = datetime.now().strftime("%Y-%m-%d")
     return textwrap.dedent(f"""{header}{bullets}\n— {stamp} • Mantra-AI""")
+# Mantra-AI CLI (no external dependencies)
+import argparse
+import json
+from pathlib import Path
+from .generator import generate_mantras, format_block
+
+VAULT_DIR = Path.home() / ".mantra_ai"
+
+def save_to_vault(topic: str, block: str) -> Path:
+    VAULT_DIR.mkdir(parents=True, exist_ok=True)
+    safe = topic.strip().replace(" ", "_")[:40]
+    out = VAULT_DIR / f"{safe}.txt"
+    out.write_text(block, encoding="utf-8")
+    return out
+
+def main():
+    p = argparse.ArgumentParser(
+        prog="mantra",
+        description="Mantra-AI — generate hybrid mantras from any topic."
+    )
+    p.add_argument("topic", help="Your topic (e.g., 'wealth', 'focus under pressure')")
+    p.add_argument("-n", "--num", type=int, default=5, help="How many lines (default 5)")
+    p.add_argument("--json", action="store_true", help="Output JSON instead of text")
+    p.add_argument("--save", action="store_true", help="Save to local vault (~/.mantra_ai)")
+    args = p.parse_args()
+
+    payload = generate_mantras(args.topic, n=args.num)
+
+    if args.json:
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
+        return
+
+    block = format_block(payload)
+    print(block)
+
+    if args.save:
+        path = save_to_vault(args.topic, block)
+        print(f"\nSaved to: {path}")
+
+if __name__ == "__main__":
+    main()
