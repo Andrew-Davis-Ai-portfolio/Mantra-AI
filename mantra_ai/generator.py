@@ -103,3 +103,15 @@ def main():
 
 if __name__ == "__main__":
     main()
+__all__ = ["generate_mantras"]
+[project]
+name = "mantra-ai"
+version = "0.1.0"
+description = "CLI mantra generator — hybrid motivational style. No external deps."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+
+[project.scripts]
+mantra = "mantra_ai.cli:main"
+# No external requirements (stdlib only)
