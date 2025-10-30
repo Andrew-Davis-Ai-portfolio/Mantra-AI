@@ -1,16 +1,16 @@
 # Mantra-AI
-**Auto-Generated Mindset Commands for Wealth • Focus • Leadership**
 
-![status](https://img.shields.io/badge/Phase-I%20Live-brightgreen)
-![build](https://img.shields.io/badge/CLI-Enabled-blue)
-![license](https://img.shields.io/badge/License-MIT-lightgrey)
 AI-powered mantra generator that turns any topic into an instant motivational drop. 
 Simple input ➝ High-impact mantra output.
 
 Wealth is a frequency — not a fantasy.
 
 Mantra-AI builds identity, discipline, and execution through daily mental training.
+**Auto-Generated Mindset Commands for Wealth • Focus • Leadership**
 
+![status](https://img.shields.io/badge/Phase-I%20Live-brightgreen)
+![build](https://img.shields.io/badge/CLI-Enabled-blue)
+![license](https://img.shields.io/badge/License-MIT-lightgrey)
 ## Daily Mental Training Powered by AI
 • Type any topic you want a mantra for  
 • Receive targeted empowerment instantly  
