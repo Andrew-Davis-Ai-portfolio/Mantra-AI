@@ -28,3 +28,25 @@ How to Use Mantra-AI
 
 Affirmation is temporary.
 Mantras are identity commands. ⚡
+## 🚀 Quick Start (CLI)
+
+```bash
+# From repo root
+pip install -e .
+
+# Generate mantras (Hybrid voice)
+mantra "Wealth"            # default 5 lines
+mantra "Focus when tired"  # any phrase
+mantra "Leadership" -n 8   # more lines
+mantra "Patience" --save   # saves to ~/.mantra_ai/Patience.txt
+mantra "Discipline" --json # machine-readable
+---
+
+## What to do now (fastest path)
+1. Create folder `mantra_ai/` and drop the three Python files inside.
+2. Add `pyproject.toml` and `requirements.txt` at repo root.
+3. From terminal: `pip install -e .`
+4. Test: `mantra "Wealth Under Pressure" --save`
+
+That’s it. Your **infrastructure stays perfect**, visuals are optional.  
+When you want the web or desktop UI, we layer it on top of this CLI core without changing the behavior.
